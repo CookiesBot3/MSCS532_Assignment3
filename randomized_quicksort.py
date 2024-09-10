@@ -38,6 +38,6 @@ def quicksort(arr):
     return arr
 
 # Test the implementation with an example
-test_array = [10, 7, 8, 9, 1, 5]
-sorted_array = quicksort(test_array)
-print(sorted_array)
+# test_array = [10, 7, 8, 9, 1, 5]
+# sorted_array = quicksort(test_array)
+# print(sorted_array)
