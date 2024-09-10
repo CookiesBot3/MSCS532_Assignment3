@@ -11,8 +11,8 @@ def randomized_partition(arr, low, high):
 
 # Partition function to rearrange the array
 def partition(arr, low, high):
-    pivot = arr[high]  # Pivot is the last element
-    i = low - 1  # Index of the smaller element
+    pivot = arr[high]
+    i = low - 1
     for j in range(low, high):
         if arr[j] <= pivot:
             i += 1
@@ -33,11 +33,11 @@ def randomized_quicksort(arr, low = 0, high = None):
         randomized_quicksort(arr, pi + 1, high)
 
 # Wrapper function to simplify usage
-def quicksort(arr):
+def quick_sort(arr):
     randomized_quicksort(arr)
     return arr
 
 # Test the implementation with an example
-# test_array = [10, 7, 8, 9, 1, 5]
+# test_array = [10, 6, 12, 14, 14, 5, 10, 6, 10, 1, 9, 15, 5, 4, 11]
 # sorted_array = quicksort(test_array)
 # print(sorted_array)
