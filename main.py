@@ -58,7 +58,7 @@ def sort_runner(arr, arrayType = 0):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    size = 300
+    size = 500
 
     # Generate all the array dataset according to the flag ie. Random, ascending, descending
     arrayRandom = generate_data(size, random_flag=True)

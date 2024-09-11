@@ -42,7 +42,7 @@ class HashTable:
 
 
 # Example Usage
-hash_table = HashTable(10)  # Create a hash table of size 10
+hash_table = HashTable(2)  # Create a hash table of size 10
 
 hash_table.insert("apple", 10)
 hash_table.insert("banana", 20)
