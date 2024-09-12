@@ -36,8 +36,3 @@ def randomized_quicksort(arr, low = 0, high = None):
 def quick_sort(arr):
     randomized_quicksort(arr)
     return arr
-
-# Test the implementation with an example
-# test_array = [10, 6, 12, 14, 14, 5, 10, 6, 10, 1, 9, 15, 5, 4, 11]
-# sorted_array = quicksort(test_array)
-# print(sorted_array)

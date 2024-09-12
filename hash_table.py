@@ -37,32 +37,37 @@ class HashTable:
 
     def display(self):
         # Helper function to display the contents of the hash table
+        print("\nCurrent Hash Table:")
         for i, chain in enumerate(self.table):
             print(f"Index {i}: {chain}")
+        print("")
 
 
-# Example Usage
-hash_table = HashTable(2)  # Create a hash table of size 10
+def simulateHashTable(size):
+    if size == 0:
+        print("Size cannot be 0")
 
-hash_table.insert("apple", 10)
-hash_table.insert("banana", 20)
-hash_table.insert("grape", 30)
-hash_table.insert("orange", 40)
-hash_table.insert("peach", 50)  # Likely to collide with "apple"
-hash_table.insert("cherry", 60)  # Likely to collide with "banana"
-hash_table.insert("mango", 44)
+    hash_table = HashTable(size)  # Create a hash table of size 10
 
-# Display the hash table
-hash_table.display()
+    hash_table.insert("apple", 10)
+    hash_table.insert("banana", 20)
+    hash_table.insert("grape", 30)
+    hash_table.insert("orange", 40)
+    hash_table.insert("peach", 50)
+    hash_table.insert("cherry", 60)
+    hash_table.insert("mango", 44)
 
-# Search for keys
-print("Search 'apple':", hash_table.search("apple"))
-print("Search 'banana':", hash_table.search("banana"))
-print("Search 'pear':", hash_table.search("pear"))  # Key not found
+    # Display the hash table after inserting
+    hash_table.display()
 
-# Delete a key
-print("Delete 'grape':", hash_table.delete("grape"))
-print("Delete 'pear':", hash_table.delete("pear"))  # Key not found
+    # Search for keys
+    print("Search 'apple':", hash_table.search("apple"))
+    print("Search 'banana':", hash_table.search("banana"))
+    print("Search 'pear':", hash_table.search("pear"))  # Key not found
 
-# Display the hash table
-hash_table.display()
+    # Delete a key
+    print("Delete 'grape':", hash_table.delete("grape"))
+    print("Delete 'pear':", hash_table.delete("pear"))  # Key not found
+
+    # Display the hash table
+    hash_table.display()

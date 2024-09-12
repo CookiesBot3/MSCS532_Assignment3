@@ -1,4 +1,6 @@
 from randomized_quicksort import quick_sort
+from quickSort import quickSort
+from hash_table import simulateHashTable
 import random
 import time
 import tracemalloc
@@ -27,8 +29,8 @@ def generate_data(size, random_flag=False, ascending=False, descending=False):
         array_with_repeats = [random.choice(range(1, size+1)) for _ in range(size)]
         return array_with_repeats
 
-def sort_runner(arr, arrayType = 0):
-    type = ""
+def sort_runner(arr, deterministic ,arrayType = 0):
+    type = "Randomized quick sort"
     array_data_type = ""
 
     #flags to determine which data type it is sorting.
@@ -42,23 +44,24 @@ def sort_runner(arr, arrayType = 0):
         array_data_type = "random with repeated elements"
 
     print(array_data_type + " before: ", arr)
-    tracemalloc.start()
     start_time = time.process_time() #start the timer
-    quick_sort(arr)# sort in place
+    if deterministic:
+        quickSort(arr)
+    else :
+        quick_sort(arr)# sort in place
     end_time = time.process_time() #end the timer
-    first_size, first_peak = tracemalloc.get_traced_memory()
     #Print out the proper result
+    if deterministic:
+        type = "Deterministic quick sort"
+
     print(type + " time: ", end_time - start_time)
-    print(type + ": " f"{first_size=}, {first_peak=}")
-    tracemalloc.reset_peak()
 
     print(array_data_type + " after sorted: ", arr)
-    # print("Number of operations: ", getMergeN())
-    print('\n')
+    print('')
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    size = 500
+    size = 400
 
     # Generate all the array dataset according to the flag ie. Random, ascending, descending
     arrayRandom = generate_data(size, random_flag=True)
@@ -66,8 +69,22 @@ if __name__ == '__main__':
     arrayDescending = generate_data(size, descending=True)
     array_repeated = generate_data(size)
 
+    # Generate all the array dataset according to the flag ie. Random, ascending, descending
+    arrayRandom_2 = generate_data(size, random_flag=True)
+    arrayAscending_2 = generate_data(size, ascending=True)
+    arrayDescending_2 = generate_data(size, descending=True)
+    array_repeated_2 = generate_data(size)
+
     # Run the Sorter for each type of the array for merge and quick sort
-    sort_runner(arrayRandom, arrayType=1)
-    sort_runner(arrayAscending, arrayType=2)
-    sort_runner(arrayDescending, arrayType=3)
-    sort_runner(array_repeated)
+    sort_runner(arrayRandom, False, arrayType=1)
+    sort_runner(arrayAscending, False, arrayType=2)
+    sort_runner(arrayDescending, False, arrayType=3)
+    sort_runner(array_repeated, False)
+
+    sort_runner(arrayRandom_2, True, arrayType=1)
+    sort_runner(arrayAscending_2, True, arrayType=2)
+    sort_runner(arrayDescending_2, True, arrayType=3)
+    sort_runner(array_repeated_2, True)
+
+    #simulate a hashTable run
+    simulateHashTable(5)
