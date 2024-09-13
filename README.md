@@ -11,3 +11,5 @@ To change the size of the generated arrays for the sort simulation change the "s
 
 To change the simulate Hash Table size change the argument value in line 90. The value must be equal or more than 1.
   The implementation of the method can be found in hash_table.py.
+
+Overall this comparison really shows how effective randomized pivot quick sort is in solving the worst case scenario for deterministic quick sort.
